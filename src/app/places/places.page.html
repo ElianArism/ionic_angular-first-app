@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="end">
+      <ion-button color="secondary" (click)="goToHome()">
+        <ion-icon name="airplane-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Places</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- da un scroll cuando son muchos elementos para que pueda seguir navegando -->
+  <ion-list>
+    
+    <!-- elemento unico -->
+    <ion-item *ngFor="let p of places" [routerLink]="['/places', p.id]">
+      
+      <!-- para colocar imagenes y texto este elemento es necesario -->
+      <ion-avatar slot="start"> <!--- slot genera un espaciado --->
+        <!-- colocar img con este elemento -->
+        <ion-img [src]="p.img"></ion-img>
+      </ion-avatar>
+      
+      <ion-label>
+        {{p.title}}
+      </ion-label>
+      
+    </ion-item>
+    
+  </ion-list>
+  <!-- posicionador para btn flotante  -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!-- btn flotante -->
+    <ion-fab-button color="danger" (click)="addNewPlace()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="large">My first App</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+      <ion-card *ngFor="let p of photos" color="warning">
+        <ion-img [src]="p.thumbnailUrl"></ion-img>
+        <ion-card-content>
+          <p>{{p.title}}</p>
+          <p>{{p.albumId}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+</ion-content>
